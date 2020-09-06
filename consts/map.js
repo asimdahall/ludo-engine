@@ -12,6 +12,7 @@ const HOME = "HOME";
 const { BLUE, GREEN, RED, YELLOW } = colors;
 
 const map = {
+  START: [RED],
   1: [RED, START, STAR],
   2: [RED],
   3: [RED],
@@ -31,6 +32,7 @@ const map = {
   HOME5: [YELLOW, HOME],
   HOME6: [YELLOW, WINNER],
   13: [RED],
+  START: [YELLOW],
   14: [YELLOW, START, STAR],
   15: [YELLOW],
   16: [YELLOW],
@@ -50,6 +52,7 @@ const map = {
   HOME11: [GREEN, HOME],
   HOME12: [GREEN, WINNER],
   26: [YELLOW],
+  START: [GREEN],
   27: [GREEN, START, STAR],
   28: [GREEN],
   29: [GREEN],
@@ -69,6 +72,7 @@ const map = {
   HOME17: [BLUE, HOME],
   HOME18: [BLUE, WINNER],
   39: [GREEN],
+  START: [BLUE],
   40: [BLUE, START, STAR],
   41: [BLUE],
   42: [BLUE],
@@ -102,8 +106,18 @@ for (let elements in map) {
   }
 }
 
+const INITIAL_POSITIONS = {
+  [colors.RED]: START,
+  [colors.YELLOW]: START,
+  [colors.GREEN]: START,
+  [colors.BLUE]: START,
+};
+
 module.exports = {
   map,
   START_POSITIONS,
+  INITIAL_POSITIONS,
   colors,
+  START,
+  WINNER,
 };

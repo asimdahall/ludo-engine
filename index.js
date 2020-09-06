@@ -1,14 +1,7 @@
 const Ludo = require("./src/game");
+const map = require("./consts/map");
 
-const game = new Ludo();
-
-console.log(game.rollDice());
-console.log(game.rollDice());
-console.log(game.rollDice());
-console.log(game.rollDice());
-console.log(game.rollDice());
-console.log(game.rollDice());
-console.log(game.rollDice());
-console.log(game.rollDice());
-console.log(game.rollDice());
-console.log(game.rollDice());
+module.exports = {
+  Ludo,
+  map,
+};

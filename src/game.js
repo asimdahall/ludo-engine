@@ -1,4 +1,9 @@
-const { colors, START_POSITIONS } = require("../consts/map");
+const {
+  colors,
+  START_POSITIONS,
+  INITIAL_POSITIONS,
+  START,
+} = require("../consts/map");
 const errors = require("../consts/errors");
 const spawnDice = require("../utils/spawn");
 
@@ -6,7 +11,7 @@ class Ludo {
   constructor(
     players = [colors.RED, colors.BLUE, colors.YELLOW, colors.GREEN],
     initialPlayer = colors.RED,
-    positions = START_POSITIONS
+    positions = INITIAL_POSITIONS
   ) {
     const numberOfPlayers = players.length;
     if (numberOfPlayers <= 1) {
@@ -28,8 +33,12 @@ class Ludo {
     this.previousRolledNumber = null;
   }
 
+  canRepeat(rolledItem) {
+    return rolledItem === 6 || rolledItem === 1;
+  }
+
   next(rolledItem) {
-    if (rolledItem === 6 || rolledItem === 1) {
+    if (this.canRepeat(rolledItem)) {
       this.currentPlayer = this.currentPlayer;
     } else {
       let currentPlayerIndex = this.players.indexOf(this.currentPlayer);
@@ -42,8 +51,13 @@ class Ludo {
   }
 
   moveItem(rolledItem) {
-    this.positions[this.currentPlayer] =
-      this.positions[this.currentPlayer] + rolledItem;
+    if (this.positions[this.currentPlayer] !== START) {
+      this.positions[this.currentPlayer] =
+        this.positions[this.currentPlayer] + rolledItem;
+    } else if (this.canRepeat(rolledItem)) {
+      this.positions[this.currentPlayer] = START_POSITIONS[this.currentPlayer];
+    } else {
+    }
     this.next(rolledItem);
   }
 
