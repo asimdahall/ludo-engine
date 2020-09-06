@@ -1,0 +1,38 @@
+{
+  "name": "ludo-engine",
+  "version": "0.0.1",
+  "description": "A simple engine for the ludo game made using state machine",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "build": "webpack",
+    "start:dev": "webpack-dev-server",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asimdahall/ludo-engine.git"
+  },
+  "keywords": [
+    "ludo",
+    "engine",
+    "ludo-engine"
+  ],
+  "author": "Asim Dahal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asimdahall/ludo-engine/issues"
+  },
+  "homepage": "https://github.com/asimdahall/ludo-engine#readme",
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "xstate": "^4.13.0"
+  }
+}
